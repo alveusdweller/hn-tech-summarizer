@@ -35,6 +35,12 @@ env/
 .cache/
 cached_models/
 
+# SSH Keys
+*_ssh
+*_ssh.pub
+alveus_ssh
+alveus_ssh.pub
+
 # Misc
 .DS_Store
 .env

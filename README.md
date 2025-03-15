@@ -1,15 +1,15 @@
 # HN Tech Summarizer
 
-A Python tool that fetches top stories from Hacker News and generates concise summaries using Hugging Face transformers. The project uses BART-CNN model for summarization, making it easy to stay updated with tech news without reading full articles.
+A Python tool that fetches top stories from Hacker News and generates concise summaries using Hugging Face transformers. The project uses BART-CNN model for efficient summarization, making it easy to stay updated with tech news without reading full articles.
 
 ## Features
 
 - 🤖 Uses BART-CNN model for efficient text summarization
 - 📰 Fetches and summarizes top Hacker News stories
-- 🔄 Singleton pattern for efficient model loading (loads model only once)
-- 💾 Memory-efficient processing with CPU support
-- 🚀 Easy to extend for other news sources or custom text
-- ⚡ Fast summarization with optimized parameters
+- 🔄 Singleton pattern for efficient model loading
+- 💾 Memory-efficient processing
+- 🚀 Easy to extend for other news sources
+- ⚡ Fast processing with optimized parameters
 
 ## Installation
 
@@ -47,12 +47,20 @@ This will:
 
 - Fetch the top 5 stories from Hacker News
 - Generate concise summaries for each story
-- Display results with story metadata:
-  - Title
-  - Author
-  - Score
-  - URL
-  - Summarized content
+- Display results with story metadata (title, author, score, URL)
+
+Example output:
+
+```
+Story 1:
+Title: Example Tech Article
+By: author123
+Score: 100
+URL: https://example.com/article
+
+Summary: A concise summary of the technical article...
+=====================================
+```
 
 ### Use the Tech Summarizer Directly
 
@@ -83,30 +91,32 @@ The summarizer can be configured with different parameters:
 - `max_length`: Maximum length of generated summaries (default: 150)
 - Story limit: Number of HN stories to process (default: 5)
 - Model parameters:
-  - `min_length`: Minimum summary length (default: 30)
-  - `length_penalty`: Controls summary length (default: 2.0)
-  - `num_beams`: Beam search size (default: 4)
-  - `early_stopping`: Whether to stop early in beam search (default: True)
+  - `num_beams`: Number of beams for beam search (default: 4)
+  - `length_penalty`: Length penalty for generation (default: 2.0)
+  - `early_stopping`: Whether to stop generation early (default: True)
 
 ## Future Improvements
 
 - [ ] Add proper article extraction using newspaper3k or trafilatura
-- [ ] Implement caching for faster repeated access
 - [ ] Add GPU support for faster processing
-- [ ] Add batch processing for multiple articles
-- [ ] Support for other tech news sources
-- [ ] Add progress bars for better UX
-- [ ] Implement article categorization
+- [ ] Implement caching for article content
+- [ ] Add filtering options (by score, type, etc.)
+- [ ] Create a web interface
+
+## Limitations
+
+- Currently fetches only article preview (first 5000 chars)
+- Basic HTML parsing
+- CPU-only implementation (can be extended for GPU)
 
 ## Contributing
 
-Contributions are welcome! Some areas where you can help:
+Contributions are welcome! Areas that need help:
 
-- Implementing the future improvements listed above
+- Improving article extraction
 - Adding tests
-- Improving documentation
-- Reporting bugs
-- Suggesting features
+- Implementing caching
+- Creating a web interface
 
 Please feel free to submit a Pull Request.
 
